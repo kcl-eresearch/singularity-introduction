@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<title>Reproducible computational environments using containers: Introduction to Singularity: Key Points</title>
+<title>Reproducible computational environments using containers: Introduction to Docker and Singularity: Key Points</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="assets/themetoggle.js"></script><link rel="stylesheet" type="text/css" href="assets/styles.css">
 <script src="assets/scripts.js" type="text/javascript"></script><!-- mathjax --><script type="text/x-mathjax-config">
@@ -94,7 +94,7 @@
       <img class="small-logo" alt="Lesson Description" src="assets/images/incubator-logo-sm.svg">
 </div>
     <div class="lesson-title-md">
-      Reproducible computational environments using containers: Introduction to Singularity
+      Reproducible computational environments using containers: Introduction to Docker and Singularity
     </div>
     <div class="search-icon-sm">
       <!-- TODO: do not show until we have search
@@ -105,7 +105,7 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 <li class="nav-item">
           <span class="lesson-title">
-            Reproducible computational environments using containers: Introduction to Singularity
+            Reproducible computational environments using containers: Introduction to Docker and Singularity
           </span>
         </li>
         <li class="nav-item">
@@ -144,7 +144,7 @@
   </div>
 <!--/div.container-fluid -->
 </nav><div class="col-md-12 mobile-title">
-  Reproducible computational environments using containers: Introduction to Singularity
+  Reproducible computational environments using containers: Introduction to Docker and Singularity
 </div>
 
 <aside class="col-md-12 lesson-progress"><div style="width: %" class="percentage">
@@ -246,7 +246,7 @@
 <div class="accordion accordion-flush" id="accordionFlush2">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading2">
-        <a href="01-singularity-gettingstarted.html">1. Singularity: Getting started</a>
+        <a href="introduction.html">1. Introducing Containers</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -258,7 +258,7 @@
 <div class="accordion accordion-flush" id="accordionFlush3">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading3">
-        <a href="02-singularity-cache.html">2. The Singularity cache</a>
+        <a href="meet-docker.html">2. Introducing the Docker Command Line</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -270,7 +270,7 @@
 <div class="accordion accordion-flush" id="accordionFlush4">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading4">
-        <a href="03-singularity-shell.html">3. Using Singularity containers to run commands</a>
+        <a href="docker-running-containers.html">3. Exploring and Running Containers</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -282,7 +282,7 @@
 <div class="accordion accordion-flush" id="accordionFlush5">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading5">
-        <a href="04-singularity-files.html">4. Files in Singularity containers</a>
+        <a href="docker-managing-containers.html">4. Cleaning Up Containers</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -294,7 +294,7 @@
 <div class="accordion accordion-flush" id="accordionFlush6">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading6">
-        <a href="05-singularity-docker.html">5. Using Docker images with Singularity</a>
+        <a href="singularity-gettingstarted.html">5. Singularity: Getting started</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -306,7 +306,7 @@
 <div class="accordion accordion-flush" id="accordionFlush7">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading7">
-        <a href="06-singularity-images-prep.html">6. Preparing to build Singularity images</a>
+        <a href="singularity-cache.html">6. The Singularity cache</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -318,7 +318,7 @@
 <div class="accordion accordion-flush" id="accordionFlush8">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading8">
-        <a href="07-singularity-images-building.html">7. Building Singularity images</a>
+        <a href="singularity-shell.html">7. Using Singularity containers to run commands</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -330,7 +330,79 @@
 <div class="accordion accordion-flush" id="accordionFlush9">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading9">
-        <a href="08-singularity-mpi.html">8. Running MPI parallel jobs using Singularity containers</a>
+        <a href="singularity-files.html">8. Files in Singularity containers</a>
+    </div>
+<!--/div.accordion-header-->
+
+  </div>
+<!--/div.accordion-item-->
+</div>
+<!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush10">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading10">
+        <a href="singularity-docker.html">9. Using Docker images with Singularity</a>
+    </div>
+<!--/div.accordion-header-->
+
+  </div>
+<!--/div.accordion-item-->
+</div>
+<!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush11">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading11">
+        <a href="docker-hub.html">10. Finding Containers on Docker Hub</a>
+    </div>
+<!--/div.accordion-header-->
+
+  </div>
+<!--/div.accordion-item-->
+</div>
+<!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush12">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading12">
+        <a href="creating-container-images.html">11. Creating Your Own Container Images</a>
+    </div>
+<!--/div.accordion-header-->
+
+  </div>
+<!--/div.accordion-item-->
+</div>
+<!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush13">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading13">
+        <a href="advanced-containers.html">12. Creating More Complex Container Images</a>
+    </div>
+<!--/div.accordion-header-->
+
+  </div>
+<!--/div.accordion-item-->
+</div>
+<!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush14">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading14">
+        <a href="singularity-mpi.html">13. Running MPI parallel jobs using Singularity containers</a>
+    </div>
+<!--/div.accordion-header-->
+
+  </div>
+<!--/div.accordion-item-->
+</div>
+<!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush15">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading15">
+        <a href="reproduciblity.html">14. Containers in Research Workflows: Reproducibility and Granularity</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -396,7 +468,59 @@
     <main id="main-content" class="main-content"><div class="container lesson-content">
         
         
-<section id="01-singularity-gettingstarted"><h2 class="section-heading"><a href="01-singularity-gettingstarted.html">Singularity: Getting started</a></h2>
+<section id="introduction"><h2 class="section-heading"><a href="introduction.html">Introducing Containers</a></h2>
+<hr class="half-width">
+<ul>
+<li>Almost all software depends on other software components to
+function, but these components have independent evolutionary paths.</li>
+<li>Small environments that contain only the software that is needed for
+a given task are easier to replicate and maintain.</li>
+<li>Critical systems that cannot be upgraded, due to cost, difficulty,
+etc. need to be reproduced on newer systems in a maintainable and
+self-documented way.</li>
+<li>Virtualization allows multiple environments to run on a single
+computer.</li>
+<li>Containerization improves upon the virtualization of whole computers
+by allowing efficient management of the host computer’s memory and
+storage resources.</li>
+<li>Containers are built from ‘recipes’ that define the required set of
+software components and the instructions necessary to build/install them
+within a container image.</li>
+<li>Docker and Singularity/Apptainer are software platforms that can
+create containers and the resources they use.</li>
+</ul></section><section id="meet-docker"><h2 class="section-heading"><a href="meet-docker.html">Introducing the Docker Command Line</a></h2>
+<hr class="half-width">
+<ul>
+<li>A toolbar icon indicates that Docker is ready to use (on Windows and
+macOS).</li>
+<li>You will typically interact with Docker using the command line.</li>
+<li>To learn how to run a certain Docker command, we can type the
+command followed by the <code>--help</code> flag.</li>
+</ul></section><section id="docker-running-containers"><h2 class="section-heading"><a href="docker-running-containers.html">Exploring and Running Containers</a></h2>
+<hr class="half-width">
+<ul>
+<li>The <code>docker image pull</code> command downloads Docker
+container images from the internet.</li>
+<li>The <code>docker image ls</code> command lists Docker container
+images that are (now) on your computer.</li>
+<li>The <code>docker container run</code> command creates running
+containers from container images and can run commands inside them.</li>
+<li>When using the <code>docker container run</code> command, a
+container can run a default action (if it has one), a user specified
+action, or a shell to be used interactively.</li>
+</ul></section><section id="docker-managing-containers"><h2 class="section-heading"><a href="docker-managing-containers.html">Cleaning Up Containers</a></h2>
+<hr class="half-width">
+<ul>
+<li>
+<code>docker container</code> has subcommands used to interact and
+manage containers.</li>
+<li>
+<code>docker image</code> has subcommands used to interact and
+manage container images.</li>
+<li>
+<code>docker container ls</code> or <code>docker ps</code> can
+provide information on currently running containers.</li>
+</ul></section><section id="singularity-gettingstarted"><h2 class="section-heading"><a href="singularity-gettingstarted.html">Singularity: Getting started</a></h2>
 <hr class="half-width">
 <ul>
 <li>Singularity is another container platform and it is often used in
@@ -407,7 +531,7 @@ cluster environments.</li>
 <li>Singularity has its own container image format (SIF).</li>
 <li>The <code>singularity</code> command can be used to pull images from
 Singularity Hub and run a container from an image file.</li>
-</ul></section><section id="02-singularity-cache"><h2 class="section-heading"><a href="02-singularity-cache.html">The Singularity cache</a></h2>
+</ul></section><section id="singularity-cache"><h2 class="section-heading"><a href="singularity-cache.html">The Singularity cache</a></h2>
 <hr class="half-width">
 <ul>
 <li>Singularity caches downloaded images so that an unchanged image
@@ -415,7 +539,7 @@ isn’t downloaded again when it is requested using the
 <code>singularity pull</code> command.</li>
 <li>You can free up space in the cache by removing all locally cached
 images or by specifying individual images to remove.</li>
-</ul></section><section id="03-singularity-shell"><h2 class="section-heading"><a href="03-singularity-shell.html">Using Singularity containers to run commands</a></h2>
+</ul></section><section id="singularity-shell"><h2 class="section-heading"><a href="singularity-shell.html">Using Singularity containers to run commands</a></h2>
 <hr class="half-width">
 <ul>
 <li>The <code>singularity exec</code> is an alternative to
@@ -423,7 +547,7 @@ images or by specifying individual images to remove.</li>
 running a specific command.</li>
 <li>The <code>singularity shell</code> command can be used to start a
 container and run an interactive shell within it.</li>
-</ul></section><section id="04-singularity-files"><h2 class="section-heading"><a href="04-singularity-files.html">Files in Singularity containers</a></h2>
+</ul></section><section id="singularity-files"><h2 class="section-heading"><a href="singularity-files.html">Files in Singularity containers</a></h2>
 <hr class="half-width">
 <ul>
 <li>Your current directory and home directory are usually available by
@@ -432,32 +556,48 @@ default in a container.</li>
 host system.</li>
 <li>You can specify additional host system directories to be available
 in the container.</li>
-</ul></section><section id="05-singularity-docker"><h2 class="section-heading"><a href="05-singularity-docker.html">Using Docker images with Singularity</a></h2>
+</ul></section><section id="singularity-docker"><h2 class="section-heading"><a href="singularity-docker.html">Using Docker images with Singularity</a></h2>
 <hr class="half-width">
 <ul>
 <li>Singularity can start a container from a Docker image which can be
 pulled directly from Docker Hub.</li>
-</ul></section><section id="06-singularity-images-prep"><h2 class="section-heading"><a href="06-singularity-images-prep.html">Preparing to build Singularity images</a></h2>
+</ul></section><section id="docker-hub"><h2 class="section-heading"><a href="docker-hub.html">Finding Containers on Docker Hub</a></h2>
 <hr class="half-width">
 <ul>
-<li>A Docker image is provided to run Singularity - this avoids the need
-to have a local Singularity installation on your system.</li>
-<li>The Docker Singularity image can be used to build containers on
-Linux, macOS and Windows.</li>
-<li>You can also run Singularity containers within the Docker
-Singularity image.</li>
-</ul></section><section id="07-singularity-images-building"><h2 class="section-heading"><a href="07-singularity-images-building.html">Building Singularity images</a></h2>
+<li>The Docker Hub is an online repository of container images.</li>
+<li>Many Docker Hub container images are public, and may be officially
+endorsed.</li>
+<li>Each Docker Hub page about a container image provides structured
+information and subheadings</li>
+<li>Most Docker Hub pages about container images contain sections that
+provide examples of how to use those container images.</li>
+<li>Many Docker Hub container images have multiple versions, indicated
+by tags.</li>
+<li>The naming convention for Docker container images is:
+<code>OWNER/CONTAINER_IMAGE_NAME:TAG</code>
+</li>
+<li>You can pull images from Docker Hub using both Docker and
+Singularity.</li>
+</ul></section><section id="creating-container-images"><h2 class="section-heading"><a href="creating-container-images.html">Creating Your Own Container Images</a></h2>
 <hr class="half-width">
 <ul>
-<li>Singularity definition files are used to define the build process
-and configuration for an image.</li>
-<li>Singularity’s Docker container provides a way to build images on a
-platform where Singularity is not installed but Docker is
-available.</li>
-<li>Existing images from remote registries such as Docker Hub and
-Singularity Hub can be used as a base for creating new Singularity
+<li>
+<code>Dockerfile</code>s specify what is within Docker container
 images.</li>
-</ul></section><section id="08-singularity-mpi"><h2 class="section-heading"><a href="08-singularity-mpi.html">Running MPI parallel jobs using Singularity containers</a></h2>
+<li>The <code>docker image build</code> command is used to build a
+container image from a <code>Dockerfile</code>.</li>
+<li>You can share your Docker container images through the Docker Hub so
+that others can create Docker containers from your container
+images.</li>
+</ul></section><section id="advanced-containers"><h2 class="section-heading"><a href="advanced-containers.html">Creating More Complex Container Images</a></h2>
+<hr class="half-width">
+<ul>
+<li>Docker allows containers to read and write files from the Docker
+host.</li>
+<li>You can include files from your Docker host into your Docker
+container images by using the <code>COPY</code> instruction in your
+<code>Dockerfile</code>.</li>
+</ul></section><section id="singularity-mpi"><h2 class="section-heading"><a href="singularity-mpi.html">Running MPI parallel jobs using Singularity containers</a></h2>
 <hr class="half-width">
 <ul>
 <li>Singularity images containing MPI applications can be built on one
@@ -468,6 +608,15 @@ the MPI executable on the host system to launch a Singularity container
 for each process.</li>
 <li>Think about parallel application performance requirements and how
 where you build/run your image may affect that.</li>
+</ul></section><section id="reproduciblity"><h2 class="section-heading"><a href="reproduciblity.html">Containers in Research Workflows: Reproducibility and Granularity</a></h2>
+<hr class="half-width">
+<ul>
+<li>Container images allow us to encapsulate the computation (and data)
+we have used in our research.</li>
+<li>Using a service such as Docker Hub allows us to easily share
+computational work we have done.</li>
+<li>Using container images along with a DOI service such as Zenodo
+allows us to capture our work and enables reproducibility.</li>
 </ul></section>
 </div>
     </main>

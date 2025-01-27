@@ -37,13 +37,31 @@
     <loc>https://preview.carpentries.org/singularity-introduction/about.html</loc>
   </url>
   <url>
+    <loc>https://preview.carpentries.org/singularity-introduction/advanced-containers.html</loc>
+  </url>
+  <url>
     <loc>https://preview.carpentries.org/singularity-introduction/aio.html</loc>
+  </url>
+  <url>
+    <loc>https://preview.carpentries.org/singularity-introduction/creating-container-images.html</loc>
   </url>
   <url>
     <loc>https://preview.carpentries.org/singularity-introduction/discuss.html</loc>
   </url>
   <url>
+    <loc>https://preview.carpentries.org/singularity-introduction/docker-hub.html</loc>
+  </url>
+  <url>
+    <loc>https://preview.carpentries.org/singularity-introduction/docker-managing-containers.html</loc>
+  </url>
+  <url>
+    <loc>https://preview.carpentries.org/singularity-introduction/docker-running-containers.html</loc>
+  </url>
+  <url>
     <loc>https://preview.carpentries.org/singularity-introduction/figures.html</loc>
+  </url>
+  <url>
+    <loc>https://preview.carpentries.org/singularity-introduction/images.html</loc>
   </url>
   <url>
     <loc>https://preview.carpentries.org/singularity-introduction/index.html</loc>
@@ -85,16 +103,46 @@
     <loc>https://preview.carpentries.org/singularity-introduction/instructor/about.html</loc>
   </url>
   <url>
+    <loc>https://preview.carpentries.org/singularity-introduction/instructor/advanced-containers.html</loc>
+  </url>
+  <url>
     <loc>https://preview.carpentries.org/singularity-introduction/instructor/aio.html</loc>
+  </url>
+  <url>
+    <loc>https://preview.carpentries.org/singularity-introduction/instructor/creating-container-images.html</loc>
   </url>
   <url>
     <loc>https://preview.carpentries.org/singularity-introduction/instructor/discuss.html</loc>
   </url>
   <url>
+    <loc>https://preview.carpentries.org/singularity-introduction/instructor/docker-hub.html</loc>
+  </url>
+  <url>
+    <loc>https://preview.carpentries.org/singularity-introduction/instructor/docker-managing-containers.html</loc>
+  </url>
+  <url>
+    <loc>https://preview.carpentries.org/singularity-introduction/instructor/docker-running-containers.html</loc>
+  </url>
+  <url>
     <loc>https://preview.carpentries.org/singularity-introduction/instructor/figures.html</loc>
   </url>
   <url>
+    <loc>https://preview.carpentries.org/singularity-introduction/instructor/images.html</loc>
+  </url>
+  <url>
     <loc>https://preview.carpentries.org/singularity-introduction/instructor/index.html</loc>
+  </url>
+  <url>
+    <loc>https://preview.carpentries.org/singularity-introduction/instructor/instructor-notes.html</loc>
+  </url>
+  <url>
+    <loc>https://preview.carpentries.org/singularity-introduction/instructor/introduction.html</loc>
+  </url>
+  <url>
+    <loc>https://preview.carpentries.org/singularity-introduction/instructor/key-points.html</loc>
+  </url>
+  <url>
+    <loc>https://preview.carpentries.org/singularity-introduction/instructor/meet-docker.html</loc>
   </url>
   <url>
     <loc>https://preview.carpentries.org/singularity-introduction/instructor/profiles.html</loc>
@@ -103,9 +151,63 @@
     <loc>https://preview.carpentries.org/singularity-introduction/instructor/reference.html</loc>
   </url>
   <url>
+    <loc>https://preview.carpentries.org/singularity-introduction/instructor/reproduciblity.html</loc>
+  </url>
+  <url>
+    <loc>https://preview.carpentries.org/singularity-introduction/instructor/singularity-cache.html</loc>
+  </url>
+  <url>
+    <loc>https://preview.carpentries.org/singularity-introduction/instructor/singularity-docker.html</loc>
+  </url>
+  <url>
+    <loc>https://preview.carpentries.org/singularity-introduction/instructor/singularity-files.html</loc>
+  </url>
+  <url>
+    <loc>https://preview.carpentries.org/singularity-introduction/instructor/singularity-gettingstarted.html</loc>
+  </url>
+  <url>
+    <loc>https://preview.carpentries.org/singularity-introduction/instructor/singularity-mpi.html</loc>
+  </url>
+  <url>
+    <loc>https://preview.carpentries.org/singularity-introduction/instructor/singularity-shell.html</loc>
+  </url>
+  <url>
+    <loc>https://preview.carpentries.org/singularity-introduction/instructor-notes.html</loc>
+  </url>
+  <url>
+    <loc>https://preview.carpentries.org/singularity-introduction/introduction.html</loc>
+  </url>
+  <url>
+    <loc>https://preview.carpentries.org/singularity-introduction/key-points.html</loc>
+  </url>
+  <url>
+    <loc>https://preview.carpentries.org/singularity-introduction/meet-docker.html</loc>
+  </url>
+  <url>
     <loc>https://preview.carpentries.org/singularity-introduction/profiles.html</loc>
   </url>
   <url>
     <loc>https://preview.carpentries.org/singularity-introduction/reference.html</loc>
+  </url>
+  <url>
+    <loc>https://preview.carpentries.org/singularity-introduction/reproduciblity.html</loc>
+  </url>
+  <url>
+    <loc>https://preview.carpentries.org/singularity-introduction/singularity-cache.html</loc>
+  </url>
+  <url>
+    <loc>https://preview.carpentries.org/singularity-introduction/singularity-docker.html</loc>
+  </url>
+  <url>
+    <loc>https://preview.carpentries.org/singularity-introduction/singularity-files.html</loc>
+  </url>
+  <url>
+    <loc>https://preview.carpentries.org/singularity-introduction/singularity-gettingstarted.html</loc>
+  </url>
+  <url>
+    <loc>https://preview.carpentries.org/singularity-introduction/singularity-mpi.html</loc>
+  </url>
+  <url>
+    <loc>https://preview.carpentries.org/singularity-introduction/singularity-shell.html</loc>
   </url>
 </urlset>
