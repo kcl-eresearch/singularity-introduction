@@ -73,10 +73,21 @@ So if I wanted to download the `python` container image, with Python 3.8, I woul
 $ docker image pull python:3.8
 ```
 
+Or to download the image with Singularity, I would run:
+```bash
+$ singularity pull python-3.13.sif docker://python:3.13
+```
+
 But if I wanted to download a Python 3.6 container image, I would use this name:
 
 ```bash
 $ docker image pull python:3.6
+```
+
+
+Or to download the image with Singularity, I would run:
+```bash
+$ singularity pull python-3.6.sif docker://python:3.6
 ```
 
 The default tag (which is used if you don't specify one) is called `latest`.

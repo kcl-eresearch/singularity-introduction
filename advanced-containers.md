@@ -7,6 +7,8 @@ exercises: 30
 ::::::::::::::::::::::::::::::::::::::: objectives
 
 - Explain how you can include files within Docker container images when you build them.
+- Explain how you can access files on the Docker host from your Docker containers.
+
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -14,6 +16,7 @@ exercises: 30
 
 - How can I add local files (e.g. data files) into container
   images at build time?
+- How can I access files stored on the host system from within a running Docker container?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -27,6 +30,12 @@ This episode will look at these advanced aspects of running a container or build
 a container image. Note that the examples will get gradually
 more and more complex -- most day-to-day use of containers and container images can be accomplished
 using the first 1--2 sections on this page.
+
+In a previous episode, we learnt how to bind a directory using Singularity.
+Binding (also called mounting) a directory can be very useful when you want to run the software inside your container on many different input files. 
+In other situations, you may want to save or archive an authoritative version of your data by adding it to the container image permanently.
+
+First, we'll look at how to mount directories using Docker.
 
 ## Using scripts and files from outside the container
 
@@ -92,31 +101,18 @@ $ docker container run alice/alpine-python python3 sum.py
 python3: can't open file '//sum.py': [Errno 2] No such file or directory
 ```
 
-:::::::::::::::::::::::::::::::::::::::  challenge
-
-## No such file or directory
-
-Question: What does the error message mean? Why might the Python inside the container
-not be able to find or open our script?
-
-This question is here for you to think about - we explore the answer to this
-question in the content below.
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
-The problem here is that the container and its filesystem is separate from our
+Unlike Singularity containers, Docker containers and their filesystems are _completely_ separate from our
 host computer's filesystem. When the container runs, it can't see anything outside
-itself, including any of the files on our computer. In order to use Python
-(inside the container) and our script (outside the container, on our host computer),
-we need to create a link between the directory on our computer and the container.
+itself, including any of the files in our current working directory, which would be bound by default when working with Singularity. 
 
-This link is called a "mount" and is what happens automatically when a USB drive
-or other external hard drive gets connected to a computer -- you can see the
-contents appear as if they were on your computer.
+In order to use Python
+(inside the container) to run our script (outside the container, on our host computer),
+we need to create a link between the directory on our computer and the container.
+When working with Docker we typically call this link a "mount".
 
 We can create a mount between our computer and the running container by using an additional
 option to `docker container run`. We'll also use the variable `${PWD}` which will substitute
-in our current working directory. The option will look like this
+in our current working directory. The option will look like this:
 
 `--mount type=bind,source=${PWD},target=/temp`
 
@@ -140,23 +136,20 @@ topic. You can find more information on the different mount types in
 Let's try running the command now:
 
 ```bash
-$ docker container run --mount type=bind,source=${PWD},target=/temp alice/alpine-python python3 sum.py
+$ docker container run --mount type=bind,source=${PWD},target=/temp alice/alpine-python python3 /temp/sum.py
 ```
 
-But we get the same error!
+::::::::::::::::::::::::::::::::::::::::: callout
+
+Where is the `sum.py` file? It's in the directory that's been
+mapped to `/temp` -- so we need to include that in the path to the script.
+If you forget to include the path, you will see the following error:
 
 ```output
 python3: can't open file '//sum.py': [Errno 2] No such file or directory
 ```
 
-This final piece is a bit tricky -- we really have to remember to put ourselves
-inside the container. Where is the `sum.py` file? It's in the directory that's been
-mapped to `/temp` -- so we need to include that in the path to the script. This
-command should give us what we need:
-
-```bash
-$ docker container run --mount type=bind,source=${PWD},target=/temp alice/alpine-python python3 /temp/sum.py
-```
+:::::::::::::::::::::::::::::::::::::::::
 
 Note that if we create any files in the `/temp` directory while the container is
 running, these files will appear on our host filesystem in the original directory
@@ -237,7 +230,7 @@ More generally, every Docker command will have the form:
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Exercise: Interactive jobs
+## Exercise: Interactively working with mounts
 
 Try using the directory mount option but run the container interactively.
 Can you find the folder that's connected to your host computer? What's inside?
@@ -265,7 +258,8 @@ and see that's contents are the same as the files on your host computer:
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 Mounting a directory can be very useful when you want to run the software inside your container on many different input files.
-In other situations, you may want to save or archive an authoritative version of your data by adding it to the container image permanently.  That's what we will cover next.
+In other situations, you may want to save or archive an authoritative version of your data by adding it to the container image permanently.
+That's what we will cover next.
 
 ## Including your scripts and data within a container image
 
@@ -399,7 +393,7 @@ install such commands before using them within `RUN` statements.
 We can expand on the example above to make our container image even more "automatic".
 Here are some ideas:
 
-### Make the `sum.py` script run automatically
+## Make the `sum.py` script run automatically
 
 ```
 FROM alpine
@@ -492,7 +486,7 @@ $ docker container run -it --entrypoint /bin/sh alpine-sum:v2
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-### Add the `sum.py` script to the `PATH` so you can run it directly:
+## Add the `sum.py` script to the `PATH` so you can run it directly:
 
 ```
 FROM alpine

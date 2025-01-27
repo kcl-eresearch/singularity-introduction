@@ -268,12 +268,6 @@ What might account for any difference in performance between the two builds of t
 
 If performance is an issue for you with codes that you'd like to run via Singularity, you are advised to take a look at using the *[bind model](https://sylabs.io/guides/3.5/user-guide/mpi.html#bind-model)* for building/running MPI applications through Singularity.
 
-## Singularity wrap-up
-
-This concludes the 8 episodes of the course covering Singularity. We hope you found this information useful and that it has inspired you to use Singularity to help enhance the way you build/work with research software.
-
-As a new set of material, we appreciate that there are likely to be improvements that can be made to enhance the quality of this material. We welcome your thoughts, suggestions and feedback on improvements that could be made to help others making use of these lessons.
-
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
 - Singularity images containing MPI applications can be built on one platform and then run on another (e.g. an HPC cluster) if the two platforms have compatible MPI implementations.

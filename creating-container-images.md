@@ -353,7 +353,24 @@ $ docker image tag workflow-test alice/workflow-complete:v1
 She could then push the re-named container image to Docker Hub,
 using `docker image push alice/workflow-complete:v1`
 
+:::::::::::::::::::::::::::::::::::::::: challenge
 
+## Pull and run a Docker image using Singularity
+
+Pair up with your neighbour, and pull each other's images from Docker Hub to run with Singularity.
+
+::::::::::::::::::::::::::: solution
+
+To run Alice's `alpine-python` image, you would use the following commands on the system where you're using Singularity:
+
+```bash
+$ singularity pull alice-python.sif docker://alice:alpine-python
+$ singularity run alice-python.sif
+```
+
+::::::::::::::::::::::::::: 
+
+::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 

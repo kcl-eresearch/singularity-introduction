@@ -99,7 +99,7 @@ Host system:                                                      Singularity co
 ## Binding additional host system directories to the container
 
 We may sometimes want to work with datasets or scripts stored in shared locations, using the container.
-For example, in the `/datasets/hpc_training/sample-files/arrayjob/` folder contains some toy data files. 
+For example, the `/datasets/hpc_training/sample-files/arrayjob/` folder contains some toy data files. 
 
 Let's say we wanted to analyse these files using a container based on the `hello-world.sif` container image.
 
@@ -127,7 +127,7 @@ $ singularity exec hello-world.sif ls
 If we try using the container to run `ls` on the shared dataset directory, what happens?
 
 ```bash
-$ singularity exec hello-world.sif ls 
+$ singularity exec hello-world.sif ls /datasets/hpc_training/sample-files/arrayjob/
 ```
 
 ```output
@@ -160,7 +160,7 @@ option to `singularity run` or `singularity exec`. The option will look like thi
 
 What this means is: make the directory `/datasets/hpc_training/sample-files/arrayjob/` (on the host computer) -- the source --
 *visible* within the container that is about to be started, and inside this container, name the
-directory `/temp` -- the target.
+directory `/data` -- the target.
 
 Let's try running the command now:
 
@@ -186,7 +186,6 @@ $ singularity exec --bind /datasets/hpc_training/sample-files/arrayjob/:/data he
 Note that if we create any files in the `/data` directory while the container is
 running, these files will appear on our host filesystem in the original directory
 and will stay there even when the container stops.
-
 
 Note that you don't *need* to specify a target mount location in the container.
 By default, a bind is mounted at the same path in the container as on the host system.

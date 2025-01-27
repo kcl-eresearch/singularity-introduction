@@ -19,7 +19,7 @@ exercises: 5
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 Although this workshop is titled "Reproducible computational environments using containers",
-so far we have mostly covered the mechanics of using Docker with only passing reference to
+so far we have mostly covered the mechanics of using Docker and Singularity with only passing reference to
 the reproducibility aspects. In this section, we discuss these aspects in more detail.
 
 :::::::::::::::::::::::::::::::::::::::::  callout

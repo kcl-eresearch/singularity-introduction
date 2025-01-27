@@ -151,7 +151,7 @@ flavour of Linux + the filesystem inside.
 
 ## What are Docker and Singularity?
 
-[Docker][Docker] and [Singularity](https://sylabs.io/singularity/) are tools that allow you to build and run containers.
+[Docker](https://www.docker.com/) and [Singularity](https://sylabs.io/singularity/) are tools that allow you to build and run containers.
 They are similar in many ways.
 However, differences in the design of Singularity and Docker mean that Singularity is particularly well-suited to running on distributed, High Performance Computing (HPC) infrastructure.
 System administrators will not, generally, install Docker on shared computing platforms such as lab desktops, research clusters or HPC platforms because the design of Docker presents potential security issues for shared platforms with multiple users.
