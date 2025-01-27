@@ -403,7 +403,7 @@
 <div class="accordion accordion-flush" id="accordionFlush15">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading15">
-        <a href="reproduciblity.html">14. Containers in Research Workflows: Reproducibility and Granularity</a>
+        <a href="reproducibility.html">14. Containers in Research Workflows: Reproducibility and Granularity</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -686,7 +686,7 @@ the filesystem inside.</p>
 </section><section><h2 class="section-heading" id="what-are-docker-and-singularity">What are Docker and Singularity?<a class="anchor" aria-label="anchor" href="#what-are-docker-and-singularity"></a>
 </h2>
 <hr class="half-width">
-<p>[Docker][Docker] and <a href="https://sylabs.io/singularity/" class="external-link">Singularity</a> are tools that
+<p><a href="https://www.docker.com/" class="external-link">Docker</a> and <a href="https://sylabs.io/singularity/" class="external-link">Singularity</a> are tools that
 allow you to build and run containers. They are similar in many ways.
 However, differences in the design of Singularity and Docker mean that
 Singularity is particularly well-suited to running on distributed, High
@@ -1171,7 +1171,7 @@ prompt.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>Suppose we pick the <code>docker image build</code> command:</p>
 <div class="codewrapper sourceCode" id="cb11">
@@ -2797,7 +2797,7 @@ at your home directory on the host system.</p>
 </h2>
 <hr class="half-width">
 <p>We may sometimes want to work with datasets or scripts stored in
-shared locations, using the container. For example, in the
+shared locations, using the container. For example, the
 <code>/datasets/hpc_training/sample-files/arrayjob/</code> folder
 contains some toy data files.</p>
 <p>Let’s say we wanted to analyse these files using a container based on
@@ -2837,7 +2837,7 @@ dataset directory, what happens?</p>
 <div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="ex">$</span> singularity exec hello-world.sif ls </span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="ex">$</span> singularity exec hello-world.sif ls /datasets/hpc_training/sample-files/arrayjob/</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -2873,7 +2873,7 @@ by using an additional option to <code>singularity run</code> or
 <code>/datasets/hpc_training/sample-files/arrayjob/</code> (on the host
 computer) – the source – <em>visible</em> within the container that is
 about to be started, and inside this container, name the directory
-<code>/temp</code> – the target.</p>
+<code>/data</code> – the target.</p>
 <p>Let’s try running the command now:</p>
 <div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -3309,12 +3309,24 @@ with Python 3.8, I would use this name:</p>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="ex">$</span> docker image pull python:3.8</span></code></pre>
 </div>
-<p>But if I wanted to download a Python 3.6 container image, I would use
-this name:</p>
+<p>Or to download the image with Singularity, I would run:</p>
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="ex">$</span> docker image pull python:3.6</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="ex">$</span> singularity pull python-3.13.sif docker://python:3.13</span></code></pre>
+</div>
+<p>But if I wanted to download a Python 3.6 container image, I would use
+this name:</p>
+<div class="codewrapper sourceCode" id="cb4">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="ex">$</span> docker image pull python:3.6</span></code></pre>
+</div>
+<p>Or to download the image with Singularity, I would run:</p>
+<div class="codewrapper sourceCode" id="cb5">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="ex">$</span> singularity pull python-3.6.sif docker://python:3.6</span></code></pre>
 </div>
 <p>The default tag (which is used if you don’t specify one) is called
 <code>latest</code>.</p>
@@ -3374,16 +3386,16 @@ their <code>tidyverse</code> container image. You can look at the list
 of tags, or just guess that the tag is <code>3.6.1</code>. Altogether,
 that means that the name of the container image we want to download
 is:</p>
-<div class="codewrapper sourceCode" id="cb6">
+<div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="ex">$</span> docker image pull rocker/tidyverse:3.6.1</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="ex">$</span> docker image pull rocker/tidyverse:3.6.1</span></code></pre>
 </div>
 <p>or to use this image on an HPC system with Singularity installed:</p>
-<div class="codewrapper sourceCode" id="cb7">
+<div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="ex">$</span> singularity pull tidyverse-3.6.1.sif docker://rocker/tidyverse:3.6.1</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="ex">$</span> singularity pull tidyverse-3.6.1.sif docker://rocker/tidyverse:3.6.1</span></code></pre>
 </div>
 </div>
 </div>
@@ -3571,7 +3583,7 @@ work?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>A quick search should hopefully show that the way to install R on
 Alpine Linux is:</p>
@@ -3676,7 +3688,7 @@ Dockerfile to replicate the installation we did above?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Solution: </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>Based on our experience above, edit the <code>Dockerfile</code> (in
 your text editor of choice) to look like this:</p>
@@ -3777,7 +3789,7 @@ world”?</p></li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li><p>To see your new image, run <code>docker image ls</code>. You
@@ -3927,6 +3939,37 @@ it in her <code>alice</code> Docker Hub account with the name
 </div>
 <p>She could then push the re-named container image to Docker Hub, using
 <code>docker image push alice/workflow-complete:v1</code></p>
+<div id="pull-and-run-a-docker-image-using-singularity" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<div id="pull-and-run-a-docker-image-using-singularity" class="callout-inner">
+<h3 class="callout-title">Pull and run a Docker image using Singularity</h3>
+<div class="callout-content">
+<p>Pair up with your neighbour, and pull each other’s images from Docker
+Hub to run with Singularity.</p>
+</div>
+</div>
+</div>
+<div id="accordionSolution4" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
+  <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
+</button>
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div class="accordion-body">
+<p>To run Alice’s <code>alpine-python</code> image, you would use the
+following commands on the system where you’re using Singularity:</p>
+<div class="codewrapper sourceCode" id="cb17">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a><span class="ex">$</span> singularity pull alice-python.sif docker://alice:alpine-python</span>
+<span id="cb17-2"><a href="#cb17-2" tabindex="-1"></a><span class="ex">$</span> singularity run alice-python.sif</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
@@ -3966,6 +4009,8 @@ images.</li>
 <ul>
 <li>How can I add local files (e.g. data files) into container images at
 build time?</li>
+<li>How can I access files stored on the host system from within a
+running Docker container?</li>
 </ul>
 </div>
 </div>
@@ -3977,6 +4022,8 @@ build time?</li>
 <ul>
 <li>Explain how you can include files within Docker container images
 when you build them.</li>
+<li>Explain how you can access files on the Docker host from your Docker
+containers.</li>
 </ul>
 </div>
 </div>
@@ -3995,6 +4042,13 @@ container or building a container image. Note that the examples will get
 gradually more and more complex – most day-to-day use of containers and
 container images can be accomplished using the first 1–2 sections on
 this page.</p>
+<p>In a previous episode, we learnt how to bind a directory using
+Singularity. Binding (also called mounting) a directory can be very
+useful when you want to run the software inside your container on many
+different input files. In other situations, you may want to save or
+archive an authoritative version of your data by adding it to the
+container image permanently.</p>
+<p>First, we’ll look at how to mount directories using Docker.</p>
 <section><h2 class="section-heading" id="using-scripts-and-files-from-outside-the-container">Using scripts and files from outside the container<a class="anchor" aria-label="anchor" href="#using-scripts-and-files-from-outside-the-container"></a>
 </h2>
 <hr class="half-width">
@@ -4070,33 +4124,19 @@ to exit!)</em></p>
 </h3>
 <pre class="output" tabindex="0"><code>python3: can't open file '//sum.py': [Errno 2] No such file or directory</code></pre>
 </div>
-<div id="no-such-file-or-directory" class="callout discussion">
-<div class="callout-square">
-<i class="callout-icon" data-feather="message-circle"></i>
-</div>
-<div id="no-such-file-or-directory" class="callout-inner">
-<h3 class="callout-title">No such file or directory</h3>
-<div class="callout-content">
-<p>Question: What does the error message mean? Why might the Python
-inside the container not be able to find or open our script?</p>
-<p>This question is here for you to think about - we explore the answer
-to this question in the content below.</p>
-</div>
-</div>
-</div>
-<p>The problem here is that the container and its filesystem is separate
-from our host computer’s filesystem. When the container runs, it can’t
-see anything outside itself, including any of the files on our computer.
-In order to use Python (inside the container) and our script (outside
-the container, on our host computer), we need to create a link between
-the directory on our computer and the container.</p>
-<p>This link is called a “mount” and is what happens automatically when
-a USB drive or other external hard drive gets connected to a computer –
-you can see the contents appear as if they were on your computer.</p>
+<p>Unlike Singularity containers, Docker containers and their
+filesystems are <em>completely</em> separate from our host computer’s
+filesystem. When the container runs, it can’t see anything outside
+itself, including any of the files in our current working directory,
+which would be bound by default when working with Singularity.</p>
+<p>In order to use Python (inside the container) to run our script
+(outside the container, on our host computer), we need to create a link
+between the directory on our computer and the container. When working
+with Docker we typically call this link a “mount”.</p>
 <p>We can create a mount between our computer and the running container
 by using an additional option to <code>docker container run</code>.
 We’ll also use the variable <code>${PWD}</code> which will substitute in
-our current working directory. The option will look like this</p>
+our current working directory. The option will look like this:</p>
 <p><code>--mount type=bind,source=${PWD},target=/temp</code></p>
 <p>What this means is: make my current working directory (on the host
 computer) – the source – <em>visible</em> within the container that is
@@ -4123,23 +4163,26 @@ documentation</a>.</p>
 <div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="ex">$</span> docker container run <span class="at">--mount</span> type=bind,source=<span class="va">${PWD}</span>,target=/temp alice/alpine-python python3 sum.py</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="ex">$</span> docker container run <span class="at">--mount</span> type=bind,source=<span class="va">${PWD}</span>,target=/temp alice/alpine-python python3 /temp/sum.py</span></code></pre>
 </div>
-<p>But we get the same error!</p>
+<div id="callout2" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<div class="callout-inner">
+<h3 class="callout-title">Callout</h3>
+<div class="callout-content">
+<p>Where is the <code>sum.py</code> file? It’s in the directory that’s
+been mapped to <code>/temp</code> – so we need to include that in the
+path to the script. If you forget to include the path, you will see the
+following error:</p>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code>python3: can't open file '//sum.py': [Errno 2] No such file or directory</code></pre>
 </div>
-<p>This final piece is a bit tricky – we really have to remember to put
-ourselves inside the container. Where is the <code>sum.py</code> file?
-It’s in the directory that’s been mapped to <code>/temp</code> – so we
-need to include that in the path to the script. This command should give
-us what we need:</p>
-<div class="codewrapper sourceCode" id="cb8">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="ex">$</span> docker container run <span class="at">--mount</span> type=bind,source=<span class="va">${PWD}</span>,target=/temp alice/alpine-python python3 /temp/sum.py</span></code></pre>
+</div>
+</div>
 </div>
 <p>Note that if we create any files in the <code>/temp</code> directory
 while the container is running, these files will appear on our host
@@ -4241,12 +4284,12 @@ container</li>
 </div>
 </div>
 </div>
-<div id="exercise-interactive-jobs" class="callout challenge">
+<div id="exercise-interactively-working-with-mounts" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
-<div id="exercise-interactive-jobs" class="callout-inner">
-<h3 class="callout-title">Exercise: Interactive jobs</h3>
+<div id="exercise-interactively-working-with-mounts" class="callout-inner">
+<h3 class="callout-title">Exercise: Interactively working with mounts</h3>
 <div class="callout-content">
 <p>Try using the directory mount option but run the container
 interactively. Can you find the folder that’s connected to your host
@@ -4262,19 +4305,19 @@ computer? What’s inside?</p>
 <div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <p>The docker command to run the container interactively is:</p>
-<div class="codewrapper sourceCode" id="cb10">
+<div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="ex">$</span> docker container run <span class="at">--mount</span> type=bind,source=<span class="va">${PWD}</span>,target=/temp <span class="at">-it</span> alice/alpine-python sh</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="ex">$</span> docker container run <span class="at">--mount</span> type=bind,source=<span class="va">${PWD}</span>,target=/temp <span class="at">-it</span> alice/alpine-python sh</span></code></pre>
 </div>
 <p>Once inside, you should be able to navigate to the <code>/temp</code>
 folder and see that’s contents are the same as the files on your host
 computer:</p>
-<div class="codewrapper sourceCode" id="cb11">
+<div class="codewrapper sourceCode" id="cb10">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="ex">/#</span> cd /temp</span>
-<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a><span class="ex">/#</span> ls</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="ex">/#</span> cd /temp</span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a><span class="ex">/#</span> ls</span></code></pre>
 </div>
 </div>
 </div>
@@ -4295,15 +4338,15 @@ data. Let’s assume that we’ve finished with our <code>sum.py</code>
 script and want to add it to the container image itself.</p>
 <p>In your shell, you should still be in the <code>sum</code> folder in
 the <code>docker-intro</code> folder.</p>
+<div class="codewrapper sourceCode" id="cb11">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="ex">$</span> pwd</span></code></pre>
+</div>
 <div class="codewrapper sourceCode" id="cb12">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="ex">$</span> pwd</span></code></pre>
-</div>
-<div class="codewrapper sourceCode" id="cb13">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="ex">$</span> /Users/yourname/Desktop/docker-intro/sum</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="ex">$</span> /Users/yourname/Desktop/docker-intro/sum</span></code></pre>
 </div>
 <p>Let’s add a new line to the <code>Dockerfile</code> we’ve been using
 so far to create a copy of <code>sum.py</code>. We can do so by using
@@ -4312,10 +4355,10 @@ the <code>COPY</code> keyword.</p>
 <p>This line will cause Docker to copy the file from your computer into
 the container’s filesystem. Let’s build the container image like before,
 but give it a different name:</p>
-<div class="codewrapper sourceCode" id="cb15">
+<div class="codewrapper sourceCode" id="cb14">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="ex">$</span> docker image build <span class="at">-t</span> alice/alpine-sum .</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="ex">$</span> docker image build <span class="at">-t</span> alice/alpine-sum .</span></code></pre>
 </div>
 <div id="the-importance-of-command-order-in-a-dockerfile" class="callout">
 <div class="callout-square">
@@ -4363,17 +4406,17 @@ this one. Once inside, try running the Python script.</p>
 <div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
 <div class="accordion-body">
 <p>You can start the container interactively like so:</p>
-<div class="codewrapper sourceCode" id="cb16">
+<div class="codewrapper sourceCode" id="cb15">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a><span class="ex">$</span> docker container run <span class="at">-it</span> alice/alpine-sum sh</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="ex">$</span> docker container run <span class="at">-it</span> alice/alpine-sum sh</span></code></pre>
 </div>
 <p>You should be able to run the python command inside the container
 like this:</p>
-<div class="codewrapper sourceCode" id="cb17">
+<div class="codewrapper sourceCode" id="cb16">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a><span class="ex">/#</span> python3 /home/sum.py</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a><span class="ex">/#</span> python3 /home/sum.py</span></code></pre>
 </div>
 </div>
 </div>
@@ -4433,9 +4476,9 @@ presentation or as exercises)<a class="anchor" aria-label="anchor" href="#more-f
 <hr class="half-width">
 <p>We can expand on the example above to make our container image even
 more “automatic”. Here are some ideas:</p>
-<div class="section level3">
-<h3 id="make-the-sum-py-script-run-automatically">Make the <code>sum.py</code> script run automatically<a class="anchor" aria-label="anchor" href="#make-the-sum-py-script-run-automatically"></a>
-</h3>
+</section><section><h2 class="section-heading" id="make-the-sum-py-script-run-automatically">Make the <code>sum.py</code> script run automatically<a class="anchor" aria-label="anchor" href="#make-the-sum-py-script-run-automatically"></a>
+</h2>
+<hr class="half-width">
 <pre><code>FROM alpine
 RUN apk add --update python3 py3-pip python3-dev
 COPY sum.py /home
@@ -4443,19 +4486,19 @@ COPY sum.py /home
 # Run the sum.py script as the default command
 CMD ["python3", "/home/sum.py"]</code></pre>
 <p>Build and test it:</p>
-<div class="codewrapper sourceCode" id="cb21">
+<div class="codewrapper sourceCode" id="cb20">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a><span class="ex">$</span> docker image build <span class="at">-t</span> alpine-sum:v1 .</span>
-<span id="cb21-2"><a href="#cb21-2" tabindex="-1"></a><span class="ex">$</span> docker container run alpine-sum:v1</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" tabindex="-1"></a><span class="ex">$</span> docker image build <span class="at">-t</span> alpine-sum:v1 .</span>
+<span id="cb20-2"><a href="#cb20-2" tabindex="-1"></a><span class="ex">$</span> docker container run alpine-sum:v1</span></code></pre>
 </div>
 <p>You’ll notice that you can run the container without arguments just
 fine, resulting in <code>sum = 0</code>, but this is boring. Supplying
 arguments however doesn’t work:</p>
-<div class="codewrapper sourceCode" id="cb22">
+<div class="codewrapper sourceCode" id="cb21">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" tabindex="-1"></a><span class="ex">docker</span> container run alpine-sum:v1 10 11 12</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a><span class="ex">docker</span> container run alpine-sum:v1 10 11 12</span></code></pre>
 </div>
 <p>results in</p>
 <div class="codewrapper">
@@ -4485,14 +4528,14 @@ ENTRYPOINT ["python3", "/home/sum.py"]
 # the command-line
 CMD ["10", "11"]</code></pre>
 <p>Build and test it:</p>
-<div class="codewrapper sourceCode" id="cb25">
+<div class="codewrapper sourceCode" id="cb24">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" tabindex="-1"></a><span class="ex">$</span> docker image build <span class="at">-t</span> alpine-sum:v2 .</span>
-<span id="cb25-2"><a href="#cb25-2" tabindex="-1"></a><span class="co"># Most of the time you are interested in the sum of 10 and 11:</span></span>
-<span id="cb25-3"><a href="#cb25-3" tabindex="-1"></a><span class="ex">$</span> docker container run alpine-sum:v2</span>
-<span id="cb25-4"><a href="#cb25-4" tabindex="-1"></a><span class="co"># Sometimes you have more challenging calculations to do:</span></span>
-<span id="cb25-5"><a href="#cb25-5" tabindex="-1"></a><span class="ex">$</span> docker container run alpine-sum:v2 12 13 14</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" tabindex="-1"></a><span class="ex">$</span> docker image build <span class="at">-t</span> alpine-sum:v2 .</span>
+<span id="cb24-2"><a href="#cb24-2" tabindex="-1"></a><span class="co"># Most of the time you are interested in the sum of 10 and 11:</span></span>
+<span id="cb24-3"><a href="#cb24-3" tabindex="-1"></a><span class="ex">$</span> docker container run alpine-sum:v2</span>
+<span id="cb24-4"><a href="#cb24-4" tabindex="-1"></a><span class="co"># Sometimes you have more challenging calculations to do:</span></span>
+<span id="cb24-5"><a href="#cb24-5" tabindex="-1"></a><span class="ex">$</span> docker container run alpine-sum:v2 12 13 14</span></code></pre>
 </div>
 <div id="overriding-the-entrypoint" class="callout">
 <div class="callout-square">
@@ -4504,10 +4547,10 @@ CMD ["10", "11"]</code></pre>
 <p>Sometimes you don’t want to run the image’s <code>ENTRYPOINT</code>.
 For example if you have a specialized container image that does only
 sums, but you need an interactive shell to examine the container:</p>
-<div class="codewrapper sourceCode" id="cb26">
+<div class="codewrapper sourceCode" id="cb25">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" tabindex="-1"></a><span class="ex">$</span> docker container run <span class="at">-it</span> alpine-sum:v2 /bin/sh</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" tabindex="-1"></a><span class="ex">$</span> docker container run <span class="at">-it</span> alpine-sum:v2 /bin/sh</span></code></pre>
 </div>
 <p>will yield</p>
 <div class="codewrapper">
@@ -4517,19 +4560,18 @@ sums, but you need an interactive shell to examine the container:</p>
 </div>
 <p>You need to override the <code>ENTRYPOINT</code> statement in the
 container image like so:</p>
-<div class="codewrapper sourceCode" id="cb28">
+<div class="codewrapper sourceCode" id="cb27">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" tabindex="-1"></a><span class="ex">$</span> docker container run <span class="at">-it</span> <span class="at">--entrypoint</span> /bin/sh alpine-sum:v2</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" tabindex="-1"></a><span class="ex">$</span> docker container run <span class="at">-it</span> <span class="at">--entrypoint</span> /bin/sh alpine-sum:v2</span></code></pre>
 </div>
 </div>
 </div>
 </div>
-</div>
-<div class="section level3">
-<h3 id="add-the-sum-py-script-to-the-path-so-you-can-run-it-directly">Add the <code>sum.py</code> script to the <code>PATH</code> so you
+</section><section><h2 class="section-heading" id="add-the-sum-py-script-to-the-path-so-you-can-run-it-directly">Add the <code>sum.py</code> script to the <code>PATH</code> so you
 can run it directly:<a class="anchor" aria-label="anchor" href="#add-the-sum-py-script-to-the-path-so-you-can-run-it-directly"></a>
-</h3>
+</h2>
+<hr class="half-width">
 <pre><code>FROM alpine
 
 RUN apk add --update python3 py3-pip python3-dev
@@ -4540,11 +4582,11 @@ RUN chmod +x /home/sum.py
 # add /home folder to the PATH
 ENV PATH /home:$PATH</code></pre>
 <p>Build and test it:</p>
-<div class="codewrapper sourceCode" id="cb30">
+<div class="codewrapper sourceCode" id="cb29">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1" tabindex="-1"></a><span class="ex">$</span> docker image build <span class="at">-t</span> alpine-sum:v3 .</span>
-<span id="cb30-2"><a href="#cb30-2" tabindex="-1"></a><span class="ex">$</span> docker container run alpine-sum:v3 sum.py 1 2 3 4</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1" tabindex="-1"></a><span class="ex">$</span> docker image build <span class="at">-t</span> alpine-sum:v3 .</span>
+<span id="cb29-2"><a href="#cb29-2" tabindex="-1"></a><span class="ex">$</span> docker container run alpine-sum:v3 sum.py 1 2 3 4</span></code></pre>
 </div>
 <div id="best-practices-for-writing-dockerfiles" class="callout">
 <div class="callout-square">
@@ -4580,7 +4622,6 @@ host.</li>
 container images by using the <code>COPY</code> instruction in your
 <code>Dockerfile</code>.</li>
 </ul>
-</div>
 </div>
 </div>
 </div>
@@ -4809,7 +4850,7 @@ file in the <code>%files</code> section of the definition file.</em></p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>You should be able to build an image from the definition file as
 follows:</p>
@@ -4935,7 +4976,7 @@ initiate running of the benchmark.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Expected output and discussion </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>As you can see in the mpirun command shown above, we have called
 <code>mpirun</code> on the host system and are passing to MPI the
@@ -5004,7 +5045,7 @@ scheduler using the <code>sbatch</code> command.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Expected output and discussion </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <p>As you will have seen in the commands using the provided template job
 submission script, we have called <code>mpirun</code> on the host system
@@ -5071,7 +5112,7 @@ cluster’s network interconnects.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Discussion </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <p>You may find that performance is significantly better with the
 version of the code built directly on the HPC platform. Alternatively,
@@ -5088,19 +5129,6 @@ builds of the code?</p>
 via Singularity, you are advised to take a look at using the <em><a href="https://sylabs.io/guides/3.5/user-guide/mpi.html#bind-model" class="external-link">bind
 model</a></em> for building/running MPI applications through
 Singularity.</p>
-</div>
-</div>
-</section><section><h2 class="section-heading" id="singularity-wrap-up">Singularity wrap-up<a class="anchor" aria-label="anchor" href="#singularity-wrap-up"></a>
-</h2>
-<hr class="half-width">
-<p>This concludes the 8 episodes of the course covering Singularity. We
-hope you found this information useful and that it has inspired you to
-use Singularity to help enhance the way you build/work with research
-software.</p>
-<p>As a new set of material, we appreciate that there are likely to be
-improvements that can be made to enhance the quality of this material.
-We welcome your thoughts, suggestions and feedback on improvements that
-could be made to help others making use of these lessons.</p>
 <div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
@@ -5121,11 +5149,13 @@ where you build/run your image may affect that.</li>
 </div>
 </div>
 </div>
-</section></section><section id="aio-reproduciblity"><p>Content from <a href="reproduciblity.html">Containers in Research Workflows: Reproducibility and Granularity</a></p>
+</div>
+</div>
+</section></section><section id="aio-reproducibility"><p>Content from <a href="reproducibility.html">Containers in Research Workflows: Reproducibility and Granularity</a></p>
 <hr>
 <p>Last updated on 2025-01-27 |
 
-        <a href="https://github.com/kcl-eresearch/singularity-introduction/edit/main/episodes/reproduciblity.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
+        <a href="https://github.com/kcl-eresearch/singularity-introduction/edit/main/episodes/reproducibility.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 25 minutes</p>
 <div class="text-end">
           <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Expand All Solutions " data-collapse="Collapse All Solutions "> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
@@ -5162,9 +5192,9 @@ reproducibility of my research using containers.</li>
 </div>
 <p>Although this workshop is titled “Reproducible computational
 environments using containers”, so far we have mostly covered the
-mechanics of using Docker with only passing reference to the
-reproducibility aspects. In this section, we discuss these aspects in
-more detail.</p>
+mechanics of using Docker and Singularity with only passing reference to
+the reproducibility aspects. In this section, we discuss these aspects
+in more detail.</p>
 <div id="work-in-progress" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
@@ -5347,7 +5377,7 @@ disadvantages for each approach in the course Etherpad.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>This is not an exhaustive list but some of the advantages and
 disadvantages could be:</p>

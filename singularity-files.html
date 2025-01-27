@@ -337,7 +337,7 @@
 <div class="accordion accordion-flush" id="accordionFlush15">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading15">
-        <a href="reproduciblity.html">14. Containers in Research Workflows: Reproducibility and Granularity</a>
+        <a href="reproducibility.html">14. Containers in Research Workflows: Reproducibility and Granularity</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -584,7 +584,7 @@ at your home directory on the host system.</p>
 </div>
 </section><section><h2 class="section-heading" id="binding-additional-host-system-directories-to-the-container">Binding additional host system directories to the container<a class="anchor" aria-label="anchor" href="#binding-additional-host-system-directories-to-the-container"></a></h2>
 <hr class="half-width"><p>We may sometimes want to work with datasets or scripts stored in
-shared locations, using the container. For example, in the
+shared locations, using the container. For example, the
 <code>/datasets/hpc_training/sample-files/arrayjob/</code> folder
 contains some toy data files.</p>
 <p>Let’s say we wanted to analyse these files using a container based on
@@ -624,7 +624,7 @@ dataset directory, what happens?</p>
 <div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="ex">$</span> singularity exec hello-world.sif ls </span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="ex">$</span> singularity exec hello-world.sif ls /datasets/hpc_training/sample-files/arrayjob/</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -660,7 +660,7 @@ by using an additional option to <code>singularity run</code> or
 <code>/datasets/hpc_training/sample-files/arrayjob/</code> (on the host
 computer) – the source – <em>visible</em> within the container that is
 about to be started, and inside this container, name the directory
-<code>/temp</code> – the target.</p>
+<code>/data</code> – the target.</p>
 <p>Let’s try running the command now:</p>
 <div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>

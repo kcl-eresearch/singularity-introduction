@@ -72,7 +72,7 @@ episodes:
 - creating-container-images.md
 - advanced-containers.md
 - singularity-mpi.md
-- reproduciblity.md
+- reproducibility.md
 
 # Information for Learners
 learners: 

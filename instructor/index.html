@@ -327,7 +327,7 @@
 <div class="accordion accordion-flush" id="accordionFlush15">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading15">
-        <a href="reproduciblity.html">14. Containers in Research Workflows: Reproducibility and Granularity</a>
+        <a href="reproducibility.html">14. Containers in Research Workflows: Reproducibility and Granularity</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -574,7 +574,8 @@ Images</a>
 </td>
 <td>
 How can I add local files (e.g. data files) into container<br>images at
-build time?
+build time?<br>How can I access files stored on the host system from
+within a running Docker container?
 </td>
 </tr><tr><td>
 <span class="visually-hidden">Duration: </span>05h 05m
@@ -590,7 +591,7 @@ How do I set up and run an MPI job from a Singularity container?
 <span class="visually-hidden">Duration: </span>06h 15m
 </td>
 <td>
-14. <a href="reproduciblity.html">Containers in Research Workflows:
+14. <a href="reproducibility.html">Containers in Research Workflows:
 Reproducibility and Granularity</a>
 </td>
 <td>
@@ -665,7 +666,7 @@ available.</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-1" class="tab-content">
-<div id="nav-tabpanel-1-1" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-1-1">
+<div id="nav-tabpanel-1-1" class="tab-pane show active" aria-labelledby="nav-tab-1-1" role="tabpanel">
 <p><strong>You must have admin rights to run Docker!</strong> Some parts
 of the lesson will work without running as admin but if you are unable
 to <code>Run as administrator</code> on your machine some elements of
@@ -691,7 +692,7 @@ and you are strongly advised not to attempt to use this for any
 production use. It will, however, enable you to follow along with the
 lesson material.</em></p>
 </div>
-<div id="nav-tabpanel-1-2" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-1-2">
+<div id="nav-tabpanel-1-2" class="tab-pane" aria-labelledby="nav-tab-1-2" role="tabpanel">
 <p>Ideally, you will be able to install the Docker Desktop software,
 following the <a href="https://docs.docker.com/docker-for-mac/install/" class="external-link">Docker website’s
 documentation</a>. The current version of the Docker Desktop software
@@ -708,7 +709,7 @@ as the most recent, operating system versions (see the <a href="https://ports.ma
 details</a>), but note that we have not recently tested the Docker
 installation process via MacPorts.</p>
 </div>
-<div id="nav-tabpanel-1-3" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-1-3">
+<div id="nav-tabpanel-1-3" class="tab-pane" aria-labelledby="nav-tab-1-3" role="tabpanel">
 <p>There are too many varieties of Linux to give precise instructions
 here, but hopefully you can locate documentation for getting Docker
 installed on your Linux distribution. It may already be installed. If it

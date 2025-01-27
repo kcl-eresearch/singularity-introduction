@@ -337,7 +337,7 @@
 <div class="accordion accordion-flush" id="accordionFlush15">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading15">
-        <a href="reproduciblity.html">14. Containers in Research Workflows: Reproducibility and Granularity</a>
+        <a href="reproducibility.html">14. Containers in Research Workflows: Reproducibility and Granularity</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -504,12 +504,24 @@ with Python 3.8, I would use this name:</p>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="ex">$</span> docker image pull python:3.8</span></code></pre>
 </div>
-<p>But if I wanted to download a Python 3.6 container image, I would use
-this name:</p>
+<p>Or to download the image with Singularity, I would run:</p>
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="ex">$</span> docker image pull python:3.6</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="ex">$</span> singularity pull python-3.13.sif docker://python:3.13</span></code></pre>
+</div>
+<p>But if I wanted to download a Python 3.6 container image, I would use
+this name:</p>
+<div class="codewrapper sourceCode" id="cb4">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="ex">$</span> docker image pull python:3.6</span></code></pre>
+</div>
+<p>Or to download the image with Singularity, I would run:</p>
+<div class="codewrapper sourceCode" id="cb5">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="ex">$</span> singularity pull python-3.6.sif docker://python:3.6</span></code></pre>
 </div>
 <p>The default tag (which is used if you don’t specify one) is called
 <code>latest</code>.</p>
@@ -569,16 +581,16 @@ their <code>tidyverse</code> container image. You can look at the list
 of tags, or just guess that the tag is <code>3.6.1</code>. Altogether,
 that means that the name of the container image we want to download
 is:</p>
-<div class="codewrapper sourceCode" id="cb6">
+<div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="ex">$</span> docker image pull rocker/tidyverse:3.6.1</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="ex">$</span> docker image pull rocker/tidyverse:3.6.1</span></code></pre>
 </div>
 <p>or to use this image on an HPC system with Singularity installed:</p>
-<div class="codewrapper sourceCode" id="cb7">
+<div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="ex">$</span> singularity pull tidyverse-3.6.1.sif docker://rocker/tidyverse:3.6.1</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="ex">$</span> singularity pull tidyverse-3.6.1.sif docker://rocker/tidyverse:3.6.1</span></code></pre>
 </div>
 </div>
 </div>
