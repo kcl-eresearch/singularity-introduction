@@ -58,7 +58,6 @@ Fri Jun 26 15:17:44 BST 2020
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-<br/>
 #### **The difference between `singularity run` and `singularity exec`**
 
 Above we used the `singularity exec` command. In earlier episodes of this
@@ -96,6 +95,49 @@ Singularity>
 ```
 
 As shown above, we have opened a shell in a new container started from the `hello-world.sif` image. Note that the shell prompt has changed to show we are now within the Singularity container.
+
+:::::::::::::::::::::::::::::::::::::: callout
+
+## Comparing Singularity commands and Docker commands
+
+**To run a container:**
+
+```bash
+$ singularity run hello-world.sif
+```
+
+```bash
+$ docker container run hello-world
+```
+
+**To run a specific command using a container:**
+
+```bash
+$ singularity exec hello-world.sif /bin/echo Hello World!
+```
+
+For Docker this depends on the container.
+Some, like the `alpine` container, are set up for you to run your own commands directly:
+```bash
+docker container run alpine cat /etc/os-release
+```
+
+For others, you will need to override the default entrypoint:
+```bash
+$ docker container run -it --entrypoint /bin/date hello-world
+```
+
+**To run a shell inside a container:**
+
+```bash
+$ singularity shell hello-world.sif
+```
+
+```bash
+$ docker container run -it --entrypoint bash hello-world
+```
+
+::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::  discussion
 

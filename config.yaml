@@ -11,7 +11,7 @@
 carpentry: 'incubator'
 
 # Overall title for pages.
-title: 'Reproducible computational environments using containers: Introduction to Singularity'
+title: 'Reproducible computational environments using containers: Introduction to Docker and Singularity'
 
 # Date the lesson was created (YYYY-MM-DD, this is empty by default)
 created: 
@@ -59,14 +59,20 @@ contact: 'liz.ing-simmons@kcl.ac.uk'
 
 # Order of episodes in your lesson
 episodes: 
-- 01-singularity-gettingstarted.md
-- 02-singularity-cache.md
-- 03-singularity-shell.md
-- 04-singularity-files.md
-- 05-singularity-docker.md
-- 06-singularity-images-prep.md
-- 07-singularity-images-building.md
-- 08-singularity-mpi.md
+- introduction.md
+- meet-docker.md
+- docker-running-containers.md
+- docker-managing-containers.md
+- singularity-gettingstarted.md
+- singularity-cache.md
+- singularity-shell.md
+- singularity-files.md
+- singularity-docker.md
+- docker-hub.md
+- creating-container-images.md
+- advanced-containers.md
+- singularity-mpi.md
+- reproduciblity.md
 
 # Information for Learners
 learners: 

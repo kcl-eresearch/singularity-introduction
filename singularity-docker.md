@@ -148,7 +148,6 @@ You can run the Python console from your container shell simply by running the `
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-This concludes the fifth episode and Part I of the Singularity material. Part II contains a further three episodes where we'll look at creating your own images and then more advanced use of containers for running MPI parallel applications.
 
 ## References
 
