@@ -36,7 +36,8 @@ This lesson will introduce both [Docker](https://www.docker.com/) and [Singulari
 - You will need access to a local or remote platform with Singularity pre-installed and accessible to you as a user (i.e. no administrator/root access required).
   - If you are attending a taught version of this material, it is expected that the course organisers will provide access to a platform (e.g. an institutional HPC cluster) that you can use for these sections of the material.
 - You should be familiar with the basic commands for running jobs on the HPC platform you will be using.
-- The platform you will be using should also have MPI installed (required for episode 8).
+
+<!-- - The platform you will be using should also have MPI installed (required for episode 8).-->
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
