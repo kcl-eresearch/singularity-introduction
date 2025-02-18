@@ -122,10 +122,7 @@
             More <i data-feather="chevron-down"></i>
           </button>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-<li><a class="dropdown-item" href="about.html">About</a></li>
-<li><a class="dropdown-item" href="discuss.html">Discussion</a></li>
-<li><a class="dropdown-item" href="figures.html">Figures</a></li>
-<li><a class="dropdown-item" href="reference.html">Glossary</a></li>
+<li><a class="dropdown-item" href="reference.html">Reference</a></li>
           </ul>
 </li>
       </ul>
@@ -390,19 +387,7 @@
 <div class="accordion accordion-flush" id="accordionFlush14">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading14">
-        <a href="singularity-mpi.html">13. Running MPI parallel jobs using Singularity containers</a>
-    </div>
-<!--/div.accordion-header-->
-
-  </div>
-<!--/div.accordion-item-->
-</div>
-<!--/div.accordion-flush-->
-
-<div class="accordion accordion-flush" id="accordionFlush15">
-  <div class="accordion-item">
-    <div class="accordion-header" id="flush-heading15">
-        <a href="reproducibility.html">14. Containers in Research Workflows: Reproducibility and Granularity</a>
+        <a href="reproducibility.html">13. Containers in Research Workflows: Reproducibility and Granularity</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -435,10 +420,7 @@
                       <li>
                         <a href="profiles.html">Learner Profiles</a>
                       </li>
-                      <li><a href="about.html">About</a></li>
-<li><a href="discuss.html">Discussion</a></li>
-<li><a href="figures.html">Figures</a></li>
-<li><a href="reference.html">Glossary</a></li>
+                      <li><a href="reference.html">Reference</a></li>
                     </ul>
 </div>
                 </div>
@@ -2364,7 +2346,7 @@ images or by specifying individual images to remove.</li>
 </div>
 </section></section><section id="aio-singularity-shell"><p>Content from <a href="singularity-shell.html">Using Singularity containers to run commands</a></p>
 <hr>
-<p>Last updated on 2025-01-27 |
+<p>Last updated on 2025-02-18 |
 
         <a href="https://github.com/kcl-eresearch/singularity-introduction/edit/main/episodes/singularity-shell.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -2447,7 +2429,7 @@ image that <strong>prints the current date and time</strong>?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -2513,58 +2495,6 @@ Singularity&gt; </code></pre>
 <p>As shown above, we have opened a shell in a new container started
 from the <code>hello-world.sif</code> image. Note that the shell prompt
 has changed to show we are now within the Singularity container.</p>
-<div id="comparing-singularity-commands-and-docker-commands" class="callout">
-<div class="callout-square">
-<i class="callout-icon" data-feather="bell"></i>
-</div>
-<div id="comparing-singularity-commands-and-docker-commands" class="callout-inner">
-<h3 class="callout-title">Comparing Singularity commands and Docker commands</h3>
-<div class="callout-content">
-<p><strong>To run a container:</strong></p>
-<div class="codewrapper sourceCode" id="cb7">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="ex">$</span> singularity run hello-world.sif</span></code></pre>
-</div>
-<div class="codewrapper sourceCode" id="cb8">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="ex">$</span> docker container run hello-world</span></code></pre>
-</div>
-<p><strong>To run a specific command using a container:</strong></p>
-<div class="codewrapper sourceCode" id="cb9">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="ex">$</span> singularity exec hello-world.sif /bin/echo Hello World!</span></code></pre>
-</div>
-<p>For Docker this depends on the container. Some, like the
-<code>alpine</code> container, are set up for you to run your own
-commands directly:</p>
-<div class="codewrapper sourceCode" id="cb10">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="ex">docker</span> container run alpine cat /etc/os-release</span></code></pre>
-</div>
-<p>For others, you will need to override the default entrypoint:</p>
-<div class="codewrapper sourceCode" id="cb11">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="ex">$</span> docker container run <span class="at">-it</span> <span class="at">--entrypoint</span> /bin/date hello-world</span></code></pre>
-</div>
-<p><strong>To run a shell inside a container:</strong></p>
-<div class="codewrapper sourceCode" id="cb12">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="ex">$</span> singularity shell hello-world.sif</span></code></pre>
-</div>
-<div class="codewrapper sourceCode" id="cb13">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="ex">$</span> docker container run <span class="at">-it</span> <span class="at">--entrypoint</span> bash hello-world</span></code></pre>
-</div>
-</div>
-</div>
-</div>
 <div id="discussion-running-a-shell-inside-a-singularity-container" class="callout discussion">
 <div class="callout-square">
 <i class="callout-icon" data-feather="message-circle"></i>
@@ -2754,7 +2684,7 @@ down?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Answers </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p><strong>A1:</strong> Use the <code>ls -l</code> command to see a
 detailed file listing including file ownership and permission details.
@@ -2809,7 +2739,7 @@ the <code>hello-world.sif</code> container image.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>We can run <code>ls</code> inside a container from the image
 using:</p>
@@ -2922,7 +2852,7 @@ section on building containers.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb10">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -3367,7 +3297,7 @@ or <code>singularity pull</code> command is sufficient.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>First, search for <code>rocker</code> in Docker Hub. Then look for
 their <code>tidyverse</code> container image. You can look at the list
@@ -4611,531 +4541,6 @@ container images by using the <code>COPY</code> instruction in your
 </div>
 </div>
 </div>
-</section></section><section id="aio-singularity-mpi"><p>Content from <a href="singularity-mpi.html">Running MPI parallel jobs using Singularity containers</a></p>
-<hr>
-<p>Last updated on 2025-01-27 |
-
-        <a href="https://github.com/kcl-eresearch/singularity-introduction/edit/main/episodes/singularity-mpi.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
-<div class="text-end">
-          <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Expand All Solutions " data-collapse="Collapse All Solutions "> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
-        </div>
-<div class="overview card">
-<h2 class="card-header">Overview</h2>
-<div class="row g-0">
-<div class="col-md-4">
-<div class="card-body">
-<div class="inner">
-<h3 class="card-title">Questions</h3>
-<ul>
-<li>How do I set up and run an MPI job from a Singularity
-container?</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="col-md-8">
-<div class="card-body">
-<div class="inner bordered">
-<h3 class="card-title">Objectives</h3>
-<ul>
-<li>Learn how MPI applications within Singularity containers can be run
-on HPC platforms</li>
-<li>Understand the challenges and related performance implications when
-running MPI jobs via Singularity</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</div>
-<section><h2 class="section-heading" id="running-mpi-parallel-codes-with-singularity-containers">Running MPI parallel codes with Singularity containers<a class="anchor" aria-label="anchor" href="#running-mpi-parallel-codes-with-singularity-containers"></a>
-</h2>
-<hr class="half-width">
-<div class="section level3">
-<h3 id="mpi-overview">MPI overview<a class="anchor" aria-label="anchor" href="#mpi-overview"></a>
-</h3>
-<p>MPI - <a href="https://en.wikipedia.org/wiki/Message_Passing_Interface" class="external-link">Message
-Passing Interface</a> - is a widely used standard for parallel
-programming. It is used for exchanging messages/data between processes
-in a parallel application. If you’ve been involved in developing or
-working with computational science software, you may already be familiar
-with MPI and running MPI applications.</p>
-<p>When working with an MPI code on a large-scale cluster, a common
-approach is to compile the code yourself, within your own user directory
-on the cluster platform, building against the supported MPI
-implementation on the cluster. Alternatively, if the code is widely used
-on the cluster, the platform administrators may build and package the
-application as a module so that it is easily accessible by all users of
-the cluster.</p>
-</div>
-<div class="section level3">
-<h3 id="mpi-codes-with-singularity-containers">MPI codes with Singularity containers<a class="anchor" aria-label="anchor" href="#mpi-codes-with-singularity-containers"></a>
-</h3>
-<p>We’ve already seen that building Singularity containers can be
-impractical without root access. Since we’re highly unlikely to have
-root access on a large institutional, regional or national cluster,
-building a container directly on the target platform is not normally an
-option.</p>
-<p>If our target platform uses <a href="https://www.open-mpi.org/" class="external-link">OpenMPI</a>, one of the two widely used
-source MPI implementations, we can build/install a compatible OpenMPI
-version on our local build platform, or directly within the image as
-part of the image build process. We can then build our code that
-requires MPI, either interactively in an image sandbox or via a
-definition file.</p>
-<p>If the target platform uses a version of MPI based on <a href="https://www.mpich.org/" class="external-link">MPICH</a>, the other widely used open
-source MPI implementation, there is <a href="https://www.mpich.org/abi/" class="external-link">ABI compatibility between MPICH and
-several other MPI implementations</a>. In this case, you can build MPICH
-and your code on a local platform, within an image sandbox or as part of
-the image build process via a definition file, and you should be able to
-successfully run containers based on this image on your target cluster
-platform.</p>
-<p>As described in Singularity’s <a href="https://sylabs.io/guides/3.5/user-guide/mpi.html" class="external-link">MPI
-documentation</a>, support for both OpenMPI and MPICH is provided.
-Instructions are given for building the relevant MPI version from source
-via a definition file and we’ll see this used in an example below.</p>
-<div class="section level4">
-<h4 id="container-portability-and-performance-on-hpc-platforms">
-<strong>Container portability and performance on HPC
-platforms</strong><a class="anchor" aria-label="anchor" href="#container-portability-and-performance-on-hpc-platforms"></a>
-</h4>
-<p>While building a container on a local system that is intended for use
-on a remote HPC platform does provide some level of portability, if
-you’re after the best possible performance, it can present some issues.
-The version of MPI in the container will need to be built and configured
-to support the hardware on your target platform if the best possible
-performance is to be achieved. Where a platform has specialist hardware
-with proprietary drivers, building on a different platform with
-different hardware present means that building with the right driver
-support for optimal performance is not likely to be possible. This is
-especially true if the version of MPI available is different (but
-compatible). Singularity’s <a href="https://sylabs.io/guides/3.5/user-guide/mpi.html" class="external-link">MPI
-documentation</a> highlights two different models for working with MPI
-codes. The <em><a href="https://sylabs.io/guides/3.5/user-guide/mpi.html#hybrid-model" class="external-link">hybrid
-model</a></em> that we’ll be looking at here involves using the MPI
-executable from the MPI installation on the host system to launch
-singularity and run the application within the container. The
-application in the container is linked against and uses the MPI
-installation within the container which, in turn, communicates with the
-MPI daemon process running on the host system. In the following section
-we’ll look at building a Singularity image containing a small MPI
-application that can then be run using the hybrid model.</p>
-</div>
-</div>
-<div class="section level3">
-<h3 id="building-and-running-a-singularity-image-for-an-mpi-code">Building and running a Singularity image for an MPI code<a class="anchor" aria-label="anchor" href="#building-and-running-a-singularity-image-for-an-mpi-code"></a>
-</h3>
-<div class="section level4">
-<h4 id="building-and-testing-an-image">
-<strong>Building and testing an image</strong><a class="anchor" aria-label="anchor" href="#building-and-testing-an-image"></a>
-</h4>
-<p>This example makes the assumption that you’ll be building a container
-image on a local platform and then deploying it to a cluster with a
-different but compatible MPI implementation. See <a href="https://sylabs.io/guides/3.5/user-guide/mpi.html#singularity-and-mpi-applications" class="external-link">Singularity
-and MPI applications</a> in the Singularity documentation for further
-information on how this works.</p>
-<p>We’ll build an image from a definition file. Containers based on this
-image will be able to run MPI benchmarks using the <a href="https://mvapich.cse.ohio-state.edu/benchmarks/" class="external-link">OSU
-Micro-Benchmarks</a> software.</p>
-<p>In this example, the target platform is a remote HPC cluster that
-uses <a href="https://software.intel.com/content/www/us/en/develop/tools/mpi-library.html" class="external-link">Intel
-MPI</a>. The container can be built via the Singularity Docker image
-that we used in the previous episode of the Singularity material.</p>
-<p>Begin by creating a directory and, within that directory, downloading
-and saving the “tarballs” for version 5.7.1 of the OSU Micro-Benchmarks
-from the <a href="https://mvapich.cse.ohio-state.edu/benchmarks/" class="external-link">OSU
-Micro-Benchmarks page</a> and for MPICH version 3.4.2 from the <a href="https://www.mpich.org/downloads/" class="external-link">MPICH downloads page</a>.</p>
-<p>In the same directory, save the following definition file content to
-a <code>.def</code> file, e.g. <code>osu_benchmarks.def</code>:</p>
-<div class="codewrapper">
-<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="output" tabindex="0"><code>Bootstrap: docker
-From: ubuntu:20.04
-
-%files
-    /home/singularity/osu-micro-benchmarks-5.7.1.tgz /root/
-    /home/singularity/mpich-3.4.2.tar.gz /root/
-
-%environment
-    export SINGULARITY_MPICH_DIR=/usr
-    export OSU_DIR=/usr/local/osu/libexec/osu-micro-benchmarks/mpi
-
-%post
-    apt-get -y update &amp;&amp; DEBIAN_FRONTEND=noninteractive apt-get -y install build-essential libfabric-dev libibverbs-dev gfortran
-    cd /root
-    tar zxvf mpich-3.4.2.tar.gz &amp;&amp; cd mpich-3.4.2
-    echo "Configuring and building MPICH..."
-    ./configure --prefix=/usr --with-device=ch3:nemesis:ofi &amp;&amp; make -j2 &amp;&amp; make install
-    cd /root
-    tar zxvf osu-micro-benchmarks-5.7.1.tgz
-    cd osu-micro-benchmarks-5.7.1/
-    echo "Configuring and building OSU Micro-Benchmarks..."
-    ./configure --prefix=/usr/local/osu CC=/usr/bin/mpicc CXX=/usr/bin/mpicxx
-    make -j2 &amp;&amp; make install
-
-%runscript
-    echo "Rank ${PMI_RANK} - About to run: ${OSU_DIR}/$*"
-    exec ${OSU_DIR}/$*</code></pre>
-</div>
-<p>A quick overview of what the above definition file is doing:</p>
-<ul>
-<li>The image is being bootstrapped from the <code>ubuntu:20.04</code>
-Docker image.</li>
-<li>In the <code>%files</code> section: The OSU Micro-Benchmarks and
-MPICH tar files are copied from the current directory into the
-<code>/root</code> directory within the image.</li>
-<li>In the <code>%environment</code> section: Set a couple of
-environment variables that will be available within all containers run
-from the generated image.</li>
-<li>In the <code>%post</code> section:
-<ul>
-<li>Ubuntu’s <code>apt-get</code> package manager is used to update the
-package directory and then install the compilers and other libraries
-required for the MPICH build.</li>
-<li>The MPICH .tar.gz file is extracted and the configure, build and
-install steps are run. Note the use of the <code>--with-device</code>
-option to configure MPICH to use the correct driver to support improved
-communication performance on a high performance cluster.</li>
-<li>The OSU Micro-Benchmarks .tar.gz file is extracted and the
-configure, build and install steps are run to build the benchmark code
-from source.</li>
-</ul>
-</li>
-<li>In the <code>%runscript</code> section: A runscript is set up that
-will echo the rank number of the current process and then run the
-command provided as a command line argument.</li>
-</ul>
-<p><em>Note that base path of the the executable to run
-(<code>$OSU_DIR</code>) is hardcoded in the run script</em>. The command
-line parameter that you provide when running a container instance based
-on the image is then added to this base path. Example command line
-parameters include: <code>startup/osu_hello</code>,
-<code>collective/osu_allgather</code>, <code>pt2pt/osu_latency</code>,
-<code>one-sided/osu_put_latency</code>.</p>
-<div id="build-and-test-the-osu-micro-benchmarks-image" class="callout challenge">
-<div class="callout-square">
-<i class="callout-icon" data-feather="zap"></i>
-</div>
-<div id="build-and-test-the-osu-micro-benchmarks-image" class="callout-inner">
-<h3 class="callout-title">Build and test the OSU Micro-Benchmarks image</h3>
-<div class="callout-content">
-<p>Using the above definition file, build a Singularity image named
-<code>osu_benchmarks.sif</code>.</p>
-<p>Once the image has finished building, test it by running the
-<code>osu_hello</code> benchmark that is found in the
-<code>startup</code> benchmark folder.</p>
-<p><em>NOTE: If you’re not using the Singularity Docker image to build
-your Singularity image, you will need to edit the path to the .tar.gz
-file in the <code>%files</code> section of the definition file.</em></p>
-</div>
-</div>
-</div>
-<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
-  <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
-</button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
-<div class="accordion-body">
-<p>You should be able to build an image from the definition file as
-follows:</p>
-<div class="codewrapper sourceCode" id="cb2">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="ex">$</span> singularity build osu_benchmarks.sif osu_benchmarks.def</span></code></pre>
-</div>
-<p><em>Note that if you’re running the Singularity Docker container
-directly from the command line to undertake your build, you’ll need to
-provide the full path to the <code>.def</code> file
-<strong>within</strong> the container</em> - it is likely that this will
-be different to the file path on your host system. For example, if
-you’ve bind mounted the directory on your local system containing the
-file to <code>/home/singularity</code> within the container, the full
-path to the <code>.def</code> file will be
-<code>/home/singularity/osu_benchmarks.def</code>.</p>
-<p>Assuming the image builds successfully, you can then try running the
-container locally and also transfer the SIF file to a cluster platform
-that you have access to (that has Singularity installed) and run it
-there.</p>
-<p>Let’s begin with a single-process run of
-<code>startup/osu_hello</code> on <em>your local system</em> (where you
-built the container) to ensure that we can run the container as
-expected. We’ll use the MPI installation <em>within</em> the container
-for this test. <em>Note that when we run a parallel job on an HPC
-cluster platform, we use the MPI installation on the cluster to
-coordinate the run so things are a little different…</em></p>
-<p>Start a shell in the Singularity container based on your image and
-then run a single process job via <code>mpirun</code>:</p>
-<div class="codewrapper sourceCode" id="cb3">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="ex">$</span> singularity shell <span class="at">--contain</span> /home/singularity/osu_benchmarks.sif</span>
-<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="ex">Singularity</span><span class="op">&gt;</span> mpirun <span class="at">-np</span> 1 <span class="va">$OSU_DIR</span>/startup/osu_hello</span></code></pre>
-</div>
-<p>You should see output similar to the following:</p>
-<div class="codewrapper">
-<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="output" tabindex="0"><code># OSU MPI Hello World Test v5.7.1
-This is a test with 1 processes</code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="section level4">
-<h4 id="running-singularity-containers-via-mpi">
-<strong>Running Singularity containers via MPI</strong><a class="anchor" aria-label="anchor" href="#running-singularity-containers-via-mpi"></a>
-</h4>
-<p>Assuming the above tests worked, we can now try undertaking a
-parallel run of one of the OSU benchmarking tools within our container
-image.</p>
-<p>This is where things get interesting and we’ll begin by looking at
-how Singularity containers are run within an MPI environment.</p>
-<p>If you’re familiar with running MPI codes, you’ll know that you use
-<code>mpirun</code> (as we did in the previous example),
-<code>mpiexec</code> or a similar MPI executable to start your
-application. This executable may be run directly on the local system or
-cluster platform that you’re using, or you may need to run it through a
-job script submitted to a job scheduler. Your MPI-based application
-code, which will be linked against the MPI libraries, will make MPI API
-calls into these MPI libraries which in turn talk to the MPI daemon
-process running on the host system. This daemon process handles the
-communication between MPI processes, including talking to the daemons on
-other nodes to exchange information between processes running on
-different machines, as necessary.</p>
-<p>When running code within a Singularity container, we don’t use the
-MPI executables stored within the container (i.e. we DO NOT run
-<code>singularity exec mpirun -np &lt;numprocs&gt; /path/to/my/executable</code>).
-Instead we use the MPI installation on the host system to run
-Singularity and start an instance of our executable from within a
-container for each MPI process. Without Singularity support in an MPI
-implementation, this results in starting a separate Singularity
-container instance within each process. This can present some overhead
-if a large number of processes are being run on a host. Where
-Singularity support is built into an MPI implementation this can address
-this potential issue and reduce the overhead of running code from within
-a container as part of an MPI job.</p>
-<p>Ultimately, this means that our running MPI code is linking to the
-MPI libraries from the MPI install within our container and these are,
-in turn, communicating with the MPI daemon on the host system which is
-part of the host system’s MPI installation. In the case of MPICH, these
-two installations of MPI may be different but as long as there is <a href="https://wiki.mpich.org/mpich/index.php/ABI_Compatibility_Initiative" class="external-link">ABI
-compatibility</a> between the version of MPI installed in your container
-image and the version on the host system, your job should run
-successfully.</p>
-<p>We can now try running a 2-process MPI run of a point to point
-benchmark <code>osu_latency</code>. If your local system has both MPI
-and Singularity installed and has multiple cores, you can run this test
-on that system. Alternatively you can run on a cluster. Note that you
-may need to submit this command via a job submission script submitted to
-a job scheduler if you’re running on a cluster. If you’re attending a
-taught version of this course, some information will be provided below
-in relation to the cluster that you’ve been provided with access to.</p>
-<div id="undertake-a-parallel-run-of-the-osu_latency-benchmark-general-example" class="callout challenge">
-<div class="callout-square">
-<i class="callout-icon" data-feather="zap"></i>
-</div>
-<div id="undertake-a-parallel-run-of-the-osu_latency-benchmark-general-example" class="callout-inner">
-<h3 class="callout-title">Undertake a parallel run of the
-<code>osu_latency</code> benchmark (general example)</h3>
-<div class="callout-content">
-<p>Move the <code>osu_benchmarks.sif</code> Singularity image onto the
-cluster (or other suitable) platform where you’re going to undertake
-your benchmark run.</p>
-<p>You should be able to run the benchmark using a command similar to
-the one shown below. However, if you are running on a cluster, you may
-need to write and submit a job submission script at this point to
-initiate running of the benchmark.</p>
-<div class="codewrapper sourceCode" id="cb5">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="ex">$</span> mpirun <span class="at">-np</span> 2 singularity run osu_benchmarks.sif pt2pt/osu_latency</span></code></pre>
-</div>
-</div>
-</div>
-</div>
-<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
-  <h4 class="accordion-header" id="headingSolution2"> Expected output and discussion </h4>
-</button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
-<div class="accordion-body">
-<p>As you can see in the mpirun command shown above, we have called
-<code>mpirun</code> on the host system and are passing to MPI the
-<code>singularity</code> executable for which the parameters are the
-image file and any parameters we want to pass to the image’s run script,
-in this case the path/name of the benchmark executable to run.</p>
-<p>The following shows an example of the output you should expect to
-see. You should have latency values shown for message sizes up to
-4MB.</p>
-<div class="codewrapper">
-<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="output" tabindex="0"><code>Rank 1 - About to run: /.../mpi/pt2pt/osu_latency
-Rank 0 - About to run: /.../mpi/pt2pt/osu_latency
-# OSU MPI Latency Test v5.6.2
-# Size          Latency (us)
-0                       0.38
-1                       0.34
-...</code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div id="undertake-a-parallel-run-of-the-osu_latency-benchmark-taught-course-cluster-example" class="callout challenge">
-<div class="callout-square">
-<i class="callout-icon" data-feather="zap"></i>
-</div>
-<div id="undertake-a-parallel-run-of-the-osu_latency-benchmark-taught-course-cluster-example" class="callout-inner">
-<h3 class="callout-title">Undertake a parallel run of the
-<code>osu_latency</code> benchmark (taught course cluster example)</h3>
-<div class="callout-content">
-<p><em><strong>Note to instructors:</strong> Add details into this box
-relating to running the above example on your chosen cluster platform.
-The example SLURM script provided here is based on the UK’s ARCHER2 HPC
-platform, you should replace the template file in the <code>files</code>
-directory of the repository with a submission script suited to your
-platform, if one is required.</em></p>
-<p>This version of the exercise, for undertaking a parallel run of the
-osu_latency benchmark with your Singularity container that contains an
-MPI build, is specific to this run of the course.</p>
-<p>The information provided here is specifically tailored to the HPC
-platform that you’ve been given access to for this taught version of the
-course.</p>
-<p>Move the <code>osu_benchmarks.sif</code> Singularity image onto the
-cluster where you’re going to undertake your benchmark run. You should
-use <code>scp</code> or a similar utility to copy the file.</p>
-<p>The platform you’ve been provided with access to uses
-<code>Slurm</code> to schedule jobs to run on the platform. You now need
-to create a <code>Slurm</code> job submission script to run the
-benchmark.</p>
-<p>Download this <a href="%7B%7Bsite.url%7D%7Dfiles/osu_latency.slurm.template">template
-script</a> and edit it to suit your configuration.</p>
-<p>Submit the modified job submission script to the <code>Slurm</code>
-scheduler using the <code>sbatch</code> command.</p>
-<div class="codewrapper sourceCode" id="cb7">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="ex">$</span> sbatch osu_latency.slurm</span></code></pre>
-</div>
-</div>
-</div>
-</div>
-<div id="accordionSolution3" class="accordion challenge-accordion accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
-  <h4 class="accordion-header" id="headingSolution3"> Expected output and discussion </h4>
-</button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
-<div class="accordion-body">
-<p>As you will have seen in the commands using the provided template job
-submission script, we have called <code>mpirun</code> on the host system
-and are passing to MPI the <code>singularity</code> executable for which
-the parameters are the image file and any parameters we want to pass to
-the image’s run script. In this case, the parameters are the path/name
-of the benchmark executable to run.</p>
-<p>The following shows an example of the output you should expect to
-see. You should have latency values shown for message sizes up to
-4MB.</p>
-<div class="codewrapper">
-<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="output" tabindex="0"><code>INFO:    Convert SIF file to sandbox...
-INFO:    Convert SIF file to sandbox...
-Rank 1 - About to run: /.../mpi/pt2pt/osu_latency
-Rank 0 - About to run: /.../mpi/pt2pt/osu_latency
-# OSU MPI Latency Test v5.6.2
-# Size          Latency (us)
-0                       1.49
-1                       1.50
-2                       1.50
-...
-4194304               915.44
-INFO:    Cleaning up image...
-INFO:    Cleaning up image...</code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<p>This has demonstrated that we can successfully run a parallel MPI
-executable from within a Singularity container. However, in this case,
-the two processes will almost certainly have run on the same physical
-node so this is not testing the performance of the interconnects between
-nodes.</p>
-<p>You could now try running a larger-scale test. You can also try
-running a benchmark that uses multiple processes, for example try
-<code>collective/osu_gather</code>.</p>
-<div id="investigate-performance-when-using-a-container-image-built-on-a-local-system-and-run-on-a-cluster" class="callout challenge">
-<div class="callout-square">
-<i class="callout-icon" data-feather="zap"></i>
-</div>
-<div id="investigate-performance-when-using-a-container-image-built-on-a-local-system-and-run-on-a-cluster" class="callout-inner">
-<h3 class="callout-title">Investigate performance when using a container image built on a local system and run on a cluster</h3>
-<div class="callout-content">
-<p>To get an idea of any difference in performance between the code
-within your Singularity image and the same code built natively on the
-target HPC platform, try building the OSU benchmarks from source,
-locally on the cluster. Then try running the same benchmark(s) that you
-ran via the singularity container. Have a look at the outputs you get
-when running <code>collective/osu_gather</code> or one of the other
-collective benchmarks to get an idea of whether there is a performance
-difference and how significant it is.</p>
-<p>Try running with enough processes that the processes are spread
-across different physical nodes so that you’re making use of the
-cluster’s network interconnects.</p>
-<p>What do you see?</p>
-</div>
-</div>
-</div>
-<div id="accordionSolution4" class="accordion challenge-accordion accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
-  <h4 class="accordion-header" id="headingSolution4"> Discussion </h4>
-</button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
-<div class="accordion-body">
-<p>You may find that performance is significantly better with the
-version of the code built directly on the HPC platform. Alternatively,
-performance may be similar between the two versions.</p>
-<p>How big is the performance difference between the two builds of the
-code?</p>
-<p>What might account for any difference in performance between the two
-builds of the code?</p>
-</div>
-</div>
-</div>
-</div>
-<p>If performance is an issue for you with codes that you’d like to run
-via Singularity, you are advised to take a look at using the <em><a href="https://sylabs.io/guides/3.5/user-guide/mpi.html#bind-model" class="external-link">bind
-model</a></em> for building/running MPI applications through
-Singularity.</p>
-<div id="keypoints1" class="callout keypoints">
-<div class="callout-square">
-<i class="callout-icon" data-feather="key"></i>
-</div>
-<div class="callout-inner">
-<h3 class="callout-title">Key Points</h3>
-<div class="callout-content">
-<ul>
-<li>Singularity images containing MPI applications can be built on one
-platform and then run on another (e.g. an HPC cluster) if the two
-platforms have compatible MPI implementations.</li>
-<li>When running an MPI application within a Singularity container, use
-the MPI executable on the host system to launch a Singularity container
-for each process.</li>
-<li>Think about parallel application performance requirements and how
-where you build/run your image may affect that.</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</div>
 </section></section><section id="aio-reproducibility"><p>Content from <a href="reproducibility.html">Containers in Research Workflows: Reproducibility and Granularity</a></p>
 <hr>
 <p>Last updated on 2025-01-27 |
@@ -5509,7 +4914,7 @@ allows us to capture our work and enables reproducibility.</li>
   "creativeWorkStatus": "active",
   "url": "https://preview.carpentries.org/singularity-introduction/aio.html",
   "identifier": "https://preview.carpentries.org/singularity-introduction/aio.html",
-  "dateCreated": "2025-01-27",
+  "dateCreated": "2025-02-18",
   "dateModified": "2025-02-18",
   "datePublished": "2025-02-18"
 }

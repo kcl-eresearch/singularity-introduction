@@ -71,11 +71,13 @@ episodes:
 - docker-hub.md
 - creating-container-images.md
 - advanced-containers.md
-- singularity-mpi.md
+#- singularity-mpi.md
 - reproducibility.md
 
 # Information for Learners
 learners: 
+- setup.md
+- reference.md
 
 # Information for Instructors
 instructors: 
