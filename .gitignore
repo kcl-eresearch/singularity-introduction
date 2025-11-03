@@ -20,3 +20,4 @@ vignettes/*.pdf
 docs/
 po/*~
 .DS_Store
+.venv
