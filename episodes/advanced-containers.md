@@ -390,6 +390,21 @@ install such commands before using them within `RUN` statements.
 
 ## More fancy `Dockerfile` options (optional, for presentation or as exercises)
 
+
+:::::::::::::::::::::::::::::::::::::::::  callout
+
+## Realistic examples
+
+The [Github repository](https://github.com/kcl-eresearch/singularity-introduction/) for this lesson contains some more realistic examples in the [`episodes/files/` directory](https://github.com/kcl-eresearch/singularity-introduction/tree/main/episodes/files).
+
+You can explore the `samtools_example/` and `image_analysis_project/` directories.
+The `image_analysis_project/` builds on the `sum.py` example, with more complicated Python scripts that require dependencies to be installed inside the container as well.
+The `samtools_example/` is an example of installing software that requires compilation and a number of system-level dependencies.
+
+If you like, you can download the example Dockerfiles (or `git clone` the repository) and try building the images.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
 We can expand on the example above to make our container image even more "automatic".
 Here are some ideas:
 
